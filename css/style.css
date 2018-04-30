@@ -1,6 +1,43 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1');
 
-h1
+@font-face {
+    font-family: 'pixelfont';
+    src: url('../fonts/chunkydunk-webfont.woff2') format('woff2'),
+         url('../fonts/chunkydunk-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pixelfontoutline';
+    src: url('../fonts/chunkydunkoutlin-webfont.woff2') format('woff2'),
+         url('../fonts/chunkydunkoutlin-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+  font-family: 'Gothic A1', sans-serif;
+  color: black;
+}
+
+body a {
+  text-decoration: underline;
+  color: black;
+  text-decoration-color: red;
+}
+
+body a:hover{
+  text-decoration-color: black;
+  color: red;
+}
+.pixel-font
 {
-  font-family: 'Inconsolata', monospace;
+  font-family: 'pixelfont', 'Gothic A1', sans-serif;
+}
+
+.title-pixel-font
+{
+  font-family: 'pixelfontoutline', 'Gothic A1', sans-serif;
 }

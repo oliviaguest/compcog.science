@@ -1,0 +1,28 @@
+
+V5 Myopia
+---------------
+Instructions:
+
+
+++ Myopia ++
+
+For screen use, set at 8pt,or any multiple
+of 8.  Turn antialiasing off.  Set tracking 
+to zero(tight) or 100 (or multiples of) 
+for best results.
+
+---------------
+Usage:  This is a free font--you may use 
+this and other V5 fonts at will.  It may not 
+be sold, altered, or improperly credited,
+however.  All I ask is that you kindly inform 
+me if you find this font useful, and where
+you've used it.
+
+Enjoy,
+
+©2000 
+Roberto Christen
+rob@vfive.com
+
+
