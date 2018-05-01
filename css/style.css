@@ -26,10 +26,12 @@ body a {
   text-decoration: underline;
   color: black;
   text-decoration-color: red;
+  text-decoration-style: dotted;
 }
 
 body a:hover{
   text-decoration-color: black;
+  text-decoration-style: solid;
   color: red;
 }
 .pixel-font
