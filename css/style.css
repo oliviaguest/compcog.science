@@ -2,6 +2,8 @@
 
 @font-face {
     font-family: 'pixelfont';
+    /* src: url('../fonts/chunkydunk-webfont.woff2') format('woff2'), */
+         url('../fonts/chunkydunk-webfont.woff') format('woff');
     src: url('../fonts/chunkydunk-webfont.woff2') format('woff2'),
          url('../fonts/chunkydunk-webfont.woff') format('woff');
     font-weight: normal;
@@ -33,6 +35,12 @@ body a:hover{
   text-decoration-color: black;
   text-decoration-style: solid;
   color: red;
+
+}
+.siimple-navbar a:hover {
+  text-decoration: none;
+  font-family: 'pixelfontoutline', 'Gothic A1', sans-serif;
+
 }
 .pixel-font
 {
