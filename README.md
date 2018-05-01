@@ -8,4 +8,5 @@ http://compcog.science
 * Add some resources
 * Link to blogs
 * About
-*
+* Interviews!
+* Artwork 
