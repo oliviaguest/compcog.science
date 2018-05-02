@@ -1,5 +1,6 @@
 ---
 layout: default
+permalink: test
 ---
 
 <div class="siimple-navbar">
@@ -7,49 +8,19 @@ layout: default
     <a class="siimple-navbar-title title-pixel-font">compcog.science</a>
   </div>
   <div class="siimple-layout--right">
-    <a class="siimple-navbar-link pixel-font">view</a>
-    <a class="siimple-navbar-link pixel-font">add</a>
-    <a class="siimple-navbar-link pixel-font">about</a>
+    <a class="siimple-navbar-link pixel-font" href='{{site.baseurl}}#add'>+ add</a>
+    <a class="siimple-navbar-link pixel-font">? about</a>
   </div>
 </div>
 
-  <div class="siimple-content siimple-size siimple-content--large">
+<div class="siimple-content siimple-size siimple-content--large">
 
   <div class="siimple-grid">
-    <div class="siimple-grid-row">
-      <div class="siimple-grid-col siimple-grid-col--12">
 
-        <h1 class="pixel-font">Women and Non-binary Computational Cognitive Modellers</h1>
-        <span id="table"></span>
-          <div class="siimple-table siimple-table--striped siimple-table--hover">
-            <div class="siimple-table-header">
-              <div class="siimple-table-row">
-                <div class="siimple-table-cell">Header 1</div>
-                <div class="siimple-table-cell">Header 2</div>
-                <div class="siimple-table-cell">Header 3</div>
-              </div>
-            </div>
-            <div class="siimple-table-body">
-              <div class="siimple-table-row">
-                <div class="siimple-table-cell">Cell 1</div>
-                <div class="siimple-table-cell">Cell 2</div>
-                <div class="siimple-table-cell">Cell 3</div>
-              </div>
-              <div class="siimple-table-row">
-                <div class="siimple-table-cell">Cell 1</div>
-                <div class="siimple-table-cell">Cell 2</div>
-                <div class="siimple-table-cell">Cell 3</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="siimple-grid-row">
-        <div class="siimple-grid-col siimple-grid-col--12">
-          <h1 class="pixel-font">Random Pixel Art</h1>
+{% include form.html %}
 
-      </div>
-    </div>
+{% include table.html %}
+
   </div>
 
 </div>
