@@ -7,29 +7,19 @@ layout: default
     <a class="siimple-navbar-title title-pixel-font">compcog.science</a>
   </div>
   <div class="siimple-layout--right">
-    <a class="siimple-navbar-link pixel-font">view</a>
-    <a class="siimple-navbar-link pixel-font">add</a>
-    <a class="siimple-navbar-link pixel-font">about</a>
+    <a class="siimple-navbar-link pixel-font" href='{{site.baseurl}}#add'>+ add</a>
+    <a class="siimple-navbar-link pixel-font">? about</a>
   </div>
 </div>
 
-  <div class="siimple-content siimple-size siimple-content--large">
+<div class="siimple-content siimple-size siimple-content--large">
 
   <div class="siimple-grid">
-    <div class="siimple-grid-row">
-      <div class="siimple-grid-col siimple-grid-col--12">
 
-        <h1 class="pixel-font">Women and Non-binary Computational Cognitive Modellers</h1>
-        <span id="table"></span>
+{% include form.html %}
 
-      </div>
-    </div>
-      <div class="siimple-grid-row">
-        <div class="siimple-grid-col siimple-grid-col--12">
-          <h1 class="pixel-font">Random Pixel Art</h1>
+{% include table.html %}
 
-      </div>
-    </div>
   </div>
 
 </div>

@@ -39,7 +39,6 @@ body a:hover{
 }
 .siimple-navbar a:hover {
   text-decoration: none;
-  font-family: 'pixelfontoutline', 'Gothic A1', sans-serif;
 
 }
 .pixel-font
@@ -51,3 +50,8 @@ body a:hover{
 {
   font-family: 'pixelfontoutline', 'Gothic A1', sans-serif;
 }
+
+/* .siimple-input, .siimple-select { */
+    /* padding-left: 0; */
+    /* padding-right: 0; */
+  /* } */

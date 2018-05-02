@@ -417,7 +417,8 @@ body {
 }
 
 .siimple-table-header .siimple-table-cell {
-  background-color: #eafeff !important;
+  color: #000 !important;
+  background-color: #fff !important;
   border-bottom-right-radius: 0 !important;
   border-bottom-left-radius: 0 !important
 }
@@ -427,7 +428,7 @@ body {
 }
 
 .siimple-table-body .siimple-table-cell {
-  background-color: #eafeff
+  background-color: #fff;
 }
 
 .siimple-table-body .siimple-table-row:last-child .siimple-table-cell:first-child {
@@ -439,11 +440,11 @@ body {
 }
 
 .siimple-table--striped .siimple-table-body .siimple-table-row:nth-child(odd) .siimple-table-cell {
-  background-color: #fff
+  background-color: #f9f9f9;
 }
 
 .siimple-table--hover .siimple-table-body .siimple-table-row:hover .siimple-table-cell {
-  background-color: #c6fdff !important
+  background-color: #ededed !important
 }
 
 .siimple-tip {
