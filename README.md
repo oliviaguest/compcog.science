@@ -10,3 +10,4 @@ http://compcog.science
 * About
 * Interviews!
 * Artwork 
+* contact button for each person? 
