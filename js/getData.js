@@ -24,47 +24,7 @@ function drawChart() {
 function handleQueryResponse(response) {
 
   var dataTable = response.getDataTable();
-  // var header = '<table>';
-  // https://developers.google.com/chart/interactive/docs/reference?hl=en#methods
-  // getValue(rowIndex, columnIndex)
-  // var row = 0;
-  // // var col = 0;
-  // var rows = dataTable.getNumberOfRows();
-  // // var cols = dataTable.getNumberOfColumns();
-  // var cols = new Array(0, 1, 2, 4, 5, 6, 7);
-  // while (row < rows) {
-  //   if (row == 0) {
-  //     header += '<thead>'
-  //   } else if (row == 1) {
-  //     header += '<tbody>'
-  //   }
-  //   header += '<tr>'
-  //   // col = 0;
-  //   // while (col < cols) {
-  //   for (c in cols) {
-  //     header += '<th>'
-  //     if (((cols[c] == 2) | (cols[c] == 5) | (cols[c] == 6) | (cols[c] == 7)) & (row > 0)) {
-  //       header += '<a href="' + dataTable.getValue(row, cols[c]) +
-  //         '">site</a>';
-  //     } else {
-  //       // console.log(row, col);
-  //       header += dataTable.getValue(row, cols[c])
-  //     }
-  //     header += '</th>';
-  //     // col++;
-  //   }
-  //   header += '</tr>'
-  //   if (row == 0) { // if we are on the first row
-  //     header += '</thead>'
-  //   } else if (row == rows - 1) { // if we are on the last row
-  //     header += '</tbody></table>'
-  //
-  //   }
-  //   // console.log(rows, cols)
-  //
-  //   row++;
-  //
-  // }
+
 var arr = []
 
   var rows = dataTable.getNumberOfRows();
@@ -77,21 +37,12 @@ var arr = []
     }
     arr.push(inner)
   }
-  console.log(arr)
-  // document.getElementById("table").innerHTML = header;
-
 
 
 
   var textnode = document.createTextNode("Water");
   var item = document.getElementById("table");
   var parentDiv = item.parentNode;
-  // var arr = [
-  //     ['a', 'b', 'c'],
-  //     [0,1,2],
-  //     [1,2,3],
-  //     [2,3,0]
-  // ];
 
   var body, tab, tr, td, tn, row, col;
   body = document.getElementsByTagName('body')[0];
@@ -103,9 +54,15 @@ var arr = []
 
       for (col=0; col < arr[row].length; col++){
           th = document.createElement('th');
+          th.id = col;
+          th.onclick = function() { sortTable(this.id); };
+
           tn = document.createTextNode(arr[row][col]);
           th.appendChild(tn);
+
+
           tr.appendChild(th);
+
 
       }
   thead.appendChild(tr);
@@ -126,6 +83,71 @@ var arr = []
       tbody.appendChild(tr);
       tab.appendChild(tbody);
   }
+  tab.id = "table";
+
   parentDiv.replaceChild(tab, item);
   // console.log(dataTable.getNumberOfColumns(), dataTable.getNumberOfRows())
+}
+
+// From: https://www.w3schools.com/howto/howto_js_sort_table.asp
+function sortTable(n) {
+
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("table");
+  switching = true;
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.getElementsByTagName("TR");
+
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+
+
+      // x = rows[i].getElementsByTagName("TD")[n];
+      x = rows[i].children[n];
+
+      y = rows[i + 1].children[n];
+
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
+        }
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
+        switching = true;
+      }
+    }
+  }
 }

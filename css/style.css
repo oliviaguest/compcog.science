@@ -170,6 +170,7 @@ body a:hover{
 
   thead tr th {
     font-weight: 500;
+    cursor: pointer;
 }
 
 tbody tr:hover {
