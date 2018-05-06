@@ -4,12 +4,38 @@
 <title></title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.min.css"> -->
-<link rel="stylesheet" href="{{ site.baseurl }}/css/siimple.css">
+<!-- <link rel="stylesheet" href="{{ site.baseurl }}/css/siimple.css"> -->
+
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+<!-- <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"> -->
+<link rel="stylesheet" href="{{ site.baseurl }}/css/milligram.css">
+
 <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/getData.js"></script>
 
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="{{ site.baseurl }}/js/jquery.sticky.js"></script>
+
+
+<script>
+  $(document).ready(function(){
+    $("#sticker").sticky({topSpacing:0});
+  });
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118797138-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118797138-1');
+</script>
 
 </head>
 <body>

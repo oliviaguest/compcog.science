@@ -2,28 +2,33 @@
 layout: default
 permalink: test
 ---
+<main class="wrapper">
+<nav class="navigation" id="sticker">
+  <section class="navigation-container"><a class="navigation-title title-pixel-font" href="{{ site.baseurl }}">compcog.science</a>
+<ul class="navigation-list float-right">
+  <li class="navigation-item"><a class="navigation-link pixel-font" href='{{site.baseurl}}#view'>view</a></li>
+  <li class="navigation-item"><a class="navigation-link pixel-font"href='{{site.baseurl}}#add'>add</a></li>
+  <li class="navigation-item"><a class="navigation-link pixel-font"href='{{site.baseurl}}#about'>about</a></li>
+</ul>
+</section>
+</nav>
 
-<div class="siimple-navbar">
-  <div class="siimple-layout--left">
-    <a class="siimple-navbar-title title-pixel-font">compcog.science</a>
-  </div>
-  <div class="siimple-layout--right">
-    <a class="siimple-navbar-link pixel-font" href='{{site.baseurl}}#add'>+ add</a>
-    <a class="siimple-navbar-link pixel-font">? about</a>
-  </div>
-</div>
+<div class="container top-padding">
 
-<div class="siimple-content siimple-size siimple-content--large">
+<h1 class="title-pixel-font" >compcog.science</h1>
+<div class="top-padding"></div>
 
-  <div class="siimple-grid">
-
-{% include form.html %}
+{% include welcome.html %}
 
 {% include table.html %}
 
-  </div>
+{% include form.html %}
 
+{% include about.html %}
 </div>
+
+
 <div class="siimple-footer pixel-font" align="center">
   2018 <a href="//oliviaguest.com">Olivia Guest</a> & <a href="https://sites.google.com/site/chbergma/">Christina Bergmann</a>
 </div>
+</main>
