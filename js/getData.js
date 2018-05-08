@@ -157,7 +157,7 @@ function handleQueryResponse(response) {
   var item = document.getElementById("table"),
     parentDiv = item.parentNode;
 
-  var body, tab, tr, td, tn, col, thead, th, arrow, tbody;
+  var body, tab, tr, td, tn, col, thead, th, arrow, tbody, text;
   body = document.getElementsByTagName('body')[0];
   tab = document.createElement('table');
   // head
@@ -189,8 +189,17 @@ function handleQueryResponse(response) {
     tr = document.createElement('tr');
     console.log(row, arr[row])
     for (col = 0; col < arr[row].length; col++) {
+
       td = document.createElement('td');
-      tn = document.createTextNode(arr[row][col]);
+      td.classList.add(arr[0][col].replace(" ", "-").toLowerCase());
+      text = arr[row][col];
+      if (arr[0][col] == 'Keywords'){
+        if (text != null) {
+        text = text.toLowerCase();
+      }}
+
+      tn = document.createTextNode(text);
+
       td.appendChild(tn);
       tr.appendChild(td);
 

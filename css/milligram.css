@@ -325,6 +325,7 @@ input[type='radio'] {
   margin-left: 0;
   max-width: 100%;
   width: 100%;
+  overflow: scroll;
 }
 
 .row .column.column-offset-10 {
