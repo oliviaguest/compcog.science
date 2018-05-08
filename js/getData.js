@@ -1,19 +1,26 @@
 // https://google,developers.appspot.com/chart/interactive/docs/spreadsheets#gid
-google.load('visualization', '1', {packages: ['corechart', 'line']});
+google.load('visualization', '1', {
+  packages: ['corechart', 'line']
+});
 
 function drawChart() {
-    "use strict";
+  "use strict";
 
-    // Add your sheets url and range below
-    var spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1pDM_cbLpmfbzNFuOJO3JJTm5IF_8KzeqS8wYIsV9RN0/edit";
-    var query = new google.visualization.Query(spreadsheetUrl);
-    var boop = query.send(handleQueryResponse);
-    console.log(boop);
+  // Add your sheets url and range below
+  var spreadsheetUrl = "https://docs.google.com/spreadsheets/d/1pDM_cbLpmfbzNFuOJO3JJTm5IF_8KzeqS8wYIsV9RN0/edit";
+  var query = new google.visualization.Query(spreadsheetUrl);
+  var boop = query.send(handleQueryResponse);
+  console.log(boop);
 }
 google.setOnLoadCallback(drawChart);
 
-var arr = [];
-
+var arr = [],
+  upSymbol = 'fa-angle-up',
+  downSymbol = 'fa-angle-down'
+var arr = [],
+  upSymbol = 'fa-sort-up',
+  downSymbol = 'fa-sort-down',
+  sortSymbol = 'fa-sort'
 
 // From: https://www.w3schools.com/howto/howto_js_sort_table.asp
 function sortTable(n, n_max) {
@@ -26,8 +33,12 @@ function sortTable(n, n_max) {
 
   rows = table.getElementsByTagName("TR");
 
-  for (i = 0; i < n_max; i++){
-    rows[0].children[i].getElementsByTagName('i')[0].classList.add("white-arrow");
+  for (i = 0; i < n_max; i++) {
+    rows[0].children[i].getElementsByTagName('i')[0].classList.remove(upSymbol);
+    rows[0].children[i].getElementsByTagName('i')[0].classList.remove(downSymbol);
+
+    rows[0].children[i].getElementsByTagName('i')[0].classList.add(sortSymbol);
+    rows[0].children[i].getElementsByTagName('i')[0].classList.add('disable-sort');
   }
   /*Make a loop that will continue until
   no switching has been done:*/
@@ -35,16 +46,16 @@ function sortTable(n, n_max) {
     //start by saying: no switching is done:
     switching = false;
     rows = table.getElementsByTagName("TR");
-    rows[0].children[n].getElementsByTagName('i')[0].classList.remove("white-arrow");
+    rows[0].children[n].getElementsByTagName('i')[0].classList.remove('disable-sort');
 
     if (dir == "asc") {
-      rows[0].children[n].getElementsByTagName('i')[0].classList.add("fa-angle-up");
-      rows[0].children[n].getElementsByTagName('i')[0].classList.remove("fa-angle-down");
+      rows[0].children[n].getElementsByTagName('i')[0].classList.add(upSymbol);
+      rows[0].children[n].getElementsByTagName('i')[0].classList.remove(downSymbol);
 
 
     } else {
-      rows[0].children[n].getElementsByTagName('i')[0].classList.add("fa-angle-down");
-      rows[0].children[n].getElementsByTagName('i')[0].classList.remove("fa-angle-up");
+      rows[0].children[n].getElementsByTagName('i')[0].classList.add(downSymbol);
+      rows[0].children[n].getElementsByTagName('i')[0].classList.remove(upSymbol);
 
     }
     /*Loop through all table rows (except the
@@ -66,13 +77,13 @@ function sortTable(n, n_max) {
       if (dir == "asc") {
         if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
           //if so, mark as a switch and break the loop:
-          shouldSwitch= true;
+          shouldSwitch = true;
           break;
         }
       } else if (dir == "desc") {
         if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
           //if so, mark as a switch and break the loop:
-          shouldSwitch= true;
+          shouldSwitch = true;
           break;
         }
       }
@@ -83,7 +94,7 @@ function sortTable(n, n_max) {
       rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
       //Each time a switch is done, increase this count by 1:
-      switchcount ++;
+      switchcount++;
     } else {
       /*If no switching has been done AND the direction is "asc",
       set the direction to "desc" and run the while loop again.*/
@@ -96,89 +107,96 @@ function sortTable(n, n_max) {
 }
 
 function shuffle(array) {
-    "use strict";
+  "use strict";
 
-    var currentIndex = array.length, temporaryValue, randomIndex;
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
 
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
 
-        // Pick a remaining element...
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
 
-        // And swap it with the current element.
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
-    }
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
 
-    return array;
+  return array;
 }
 
 
 function handleQueryResponse(response) {
-    "use strict";
-    var row, col, inner, shuffledArr, newArr = [], dataTable = response.getDataTable(), rows = dataTable.getNumberOfRows(), cols = dataTable.getNumberOfColumns();
-    for (row = 0; row < rows; row += 1) {
-        inner = [];
-        for (col = 0; col < cols; col += 1) {
-            inner.push(dataTable.getValue(row, col));
-        }
-        arr.push(inner);
+  "use strict";
+  var row, col, inner, shuffledArr, newArr = [],
+    dataTable = response.getDataTable(),
+    rows = dataTable.getNumberOfRows(),
+    cols = dataTable.getNumberOfColumns();
+  for (row = 0; row < rows; row += 1) {
+    inner = [];
+    for (col = 0; col < cols; col += 1) {
+      inner.push(dataTable.getValue(row, col));
     }
+    arr.push(inner);
+  }
 
-    shuffledArr = arr.slice(1, -1);
-    shuffledArr = shuffle(shuffledArr);
-    console.log(shuffledArr.length, arr.length);
+  shuffledArr = arr.slice(1, -1);
+  shuffledArr = shuffle(shuffledArr);
+  console.log(shuffledArr.length, arr.length);
 
-    newArr[0] = arr[0];
-    for (row = 0; row < shuffledArr.length; row += 1) {
-        newArr[row + 1] = shuffledArr[row];
-    }
-    arr = newArr;
-    console.log(newArr.length, arr.length);
+  newArr[0] = arr[0];
+  for (row = 0; row < shuffledArr.length; row += 1) {
+    newArr[row + 1] = shuffledArr[row];
+  }
+  arr = newArr;
+  console.log(newArr.length, arr.length);
 
-    var item = document.getElementById("table"), parentDiv = item.parentNode;
+  var item = document.getElementById("table"),
+    parentDiv = item.parentNode;
 
-    var body, tab, tr, td, tn, col, thead, th, arrow, tbody;
-    body = document.getElementsByTagName('body')[0];
-    tab = document.createElement('table');
-    // head
-    row = 0
-    thead = document.createElement('thead');
-    tr = document.createElement('tr');
+  var body, tab, tr, td, tn, col, thead, th, arrow, tbody;
+  body = document.getElementsByTagName('body')[0];
+  tab = document.createElement('table');
+  // head
+  row = 0
+  thead = document.createElement('thead');
+  tr = document.createElement('tr');
 
-    for (col = 0; col < arr[row].length; col += 1) {
-        th = document.createElement('th');
-        th.id = col;
-        th.onclick = function () { sortTable(this.id, col); };
-        arrow = document.createElement("i");
-        arrow.classList.add("fas");
-        arrow.classList.add("fa-angle-up");
-        arrow.classList.add("white-arrow")
-        tn = document.createTextNode(arr[row][col]);
-        th.appendChild(tn);
-        th.appendChild(arrow);
-        tr.appendChild(th);
-      }
+  for (col = 0; col < arr[row].length; col += 1) {
+    th = document.createElement('th');
+    th.id = col;
+    th.onclick = function() {
+      sortTable(this.id, col);
+    };
+    arrow = document.createElement("i");
+    arrow.classList.add("fas");
+    arrow.classList.add(sortSymbol);
+    arrow.classList.add('disable-sort')
+    tn = document.createTextNode(arr[row][col]);
+    th.appendChild(tn);
+    th.appendChild(arrow);
+    tr.appendChild(th);
+  }
   thead.appendChild(tr);
 
   tab.appendChild(thead);
   // body
   tbody = document.createElement('tbody');
-  for (row=1; row < arr.length; row++){
-      tr = document.createElement('tr');
-      console.log(row, arr[row])
-      for (col=0; col < arr[row].length; col++){
-          td = document.createElement('td');
-          tn = document.createTextNode(arr[row][col]);
-          td.appendChild(tn);
-          tr.appendChild(td);
+  for (row = 1; row < arr.length; row++) {
+    tr = document.createElement('tr');
+    console.log(row, arr[row])
+    for (col = 0; col < arr[row].length; col++) {
+      td = document.createElement('td');
+      tn = document.createTextNode(arr[row][col]);
+      td.appendChild(tn);
+      tr.appendChild(td);
 
-      }
-      tbody.appendChild(tr);
-      tab.appendChild(tbody);
+    }
+    tbody.appendChild(tr);
+    tab.appendChild(tbody);
   }
   tab.id = "table";
 
