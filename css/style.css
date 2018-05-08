@@ -172,6 +172,8 @@ body a:hover{
     font-weight: 500;
     cursor: pointer;
 }
+th {    min-width: 12rem;
+}
 
 tbody tr:hover {
     background-color: #f7f7f7;
@@ -192,15 +194,7 @@ tr:nth-child(even) {
   padding-top: 4rem;
 }
 
-i {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-}
+.white-arrow {
+color: white;}
 
-
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-}
+th i {padding-left: 0.5rem;}
