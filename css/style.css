@@ -48,6 +48,10 @@ body a:hover {
 
 .navigation {
   background-color: black;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 9;
 }
 
 .navigation .navigation-list {
@@ -203,4 +207,36 @@ tr:nth-child(even) {
 
 th i {
   padding-left: 0.5rem;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+.thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.td:first-child, .th:first-child {
+    padding-left: 0;
+}
+
+.thead .tr .th {
+    font-weight: 500;
+    cursor: pointer;
+    background-color: white;
+}
+.th, th{
+    width: 20%;
+  }
+  .th{
+    font-weight: 300;
+    display: inline-block;
+}
+.td, .th {
+    border-bottom: 0.1rem solid #e1e1e1;
+    padding: 1.2rem 1.5rem;
+    text-align: left;
 }

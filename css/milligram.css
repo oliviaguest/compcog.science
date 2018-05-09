@@ -6,12 +6,8 @@
  * Licensed under the MIT license
  */
 
- @import url('https://fonts.googleapis.com/css?family=Gothic+A1:300,500');
-
-
-*,
-*:after,
-*:before {
+@import url('https://fonts.googleapis.com/css?family=Gothic+A1:300,500');
+*, *:after, *:before {
   box-sizing: inherit;
 }
 
@@ -22,7 +18,7 @@ html {
 
 body {
   color: #606c76;
-  font-family:  'Gothic A1', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  font-family: 'Gothic A1', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.4em;
   font-weight: 300;
   letter-spacing: .01em;
@@ -40,11 +36,7 @@ blockquote *:last-child {
   margin-bottom: 0;
 }
 
-.button,
-button,
-input[type='button'],
-input[type='reset'],
-input[type='submit'] {
+.button, button, input[type='button'], input[type='reset'], input[type='submit'] {
   background-color: red;
   border: 0.1rem solid red;
   /* border-radius: .4rem; */
@@ -63,112 +55,52 @@ input[type='submit'] {
   white-space: nowrap;
 }
 
-.button:focus, .button:hover,
-button:focus,
-button:hover,
-input[type='button']:focus,
-input[type='button']:hover,
-input[type='reset']:focus,
-input[type='reset']:hover,
-input[type='submit']:focus,
-input[type='submit']:hover {
+.button:focus, .button:hover, button:focus, button:hover, input[type='button']:focus, input[type='button']:hover, input[type='reset']:focus, input[type='reset']:hover, input[type='submit']:focus, input[type='submit']:hover {
   background-color: black;
   border-color: black;
   color: #fff;
   outline: 0;
 }
 
-.button[disabled],
-button[disabled],
-input[type='button'][disabled],
-input[type='reset'][disabled],
-input[type='submit'][disabled] {
+.button[disabled], button[disabled], input[type='button'][disabled], input[type='reset'][disabled], input[type='submit'][disabled] {
   cursor: default;
   opacity: .5;
 }
 
-.button[disabled]:focus, .button[disabled]:hover,
-button[disabled]:focus,
-button[disabled]:hover,
-input[type='button'][disabled]:focus,
-input[type='button'][disabled]:hover,
-input[type='reset'][disabled]:focus,
-input[type='reset'][disabled]:hover,
-input[type='submit'][disabled]:focus,
-input[type='submit'][disabled]:hover {
+.button[disabled]:focus, .button[disabled]:hover, button[disabled]:focus, button[disabled]:hover, input[type='button'][disabled]:focus, input[type='button'][disabled]:hover, input[type='reset'][disabled]:focus, input[type='reset'][disabled]:hover, input[type='submit'][disabled]:focus, input[type='submit'][disabled]:hover {
   background-color: #9b4dca;
   border-color: #9b4dca;
 }
 
-.button.button-outline,
-button.button-outline,
-input[type='button'].button-outline,
-input[type='reset'].button-outline,
-input[type='submit'].button-outline {
+.button.button-outline, button.button-outline, input[type='button'].button-outline, input[type='reset'].button-outline, input[type='submit'].button-outline {
   background-color: transparent;
   color: #9b4dca;
 }
 
-.button.button-outline:focus, .button.button-outline:hover,
-button.button-outline:focus,
-button.button-outline:hover,
-input[type='button'].button-outline:focus,
-input[type='button'].button-outline:hover,
-input[type='reset'].button-outline:focus,
-input[type='reset'].button-outline:hover,
-input[type='submit'].button-outline:focus,
-input[type='submit'].button-outline:hover {
+.button.button-outline:focus, .button.button-outline:hover, button.button-outline:focus, button.button-outline:hover, input[type='button'].button-outline:focus, input[type='button'].button-outline:hover, input[type='reset'].button-outline:focus, input[type='reset'].button-outline:hover, input[type='submit'].button-outline:focus, input[type='submit'].button-outline:hover {
   background-color: transparent;
   border-color: #606c76;
   color: #606c76;
 }
 
-.button.button-outline[disabled]:focus, .button.button-outline[disabled]:hover,
-button.button-outline[disabled]:focus,
-button.button-outline[disabled]:hover,
-input[type='button'].button-outline[disabled]:focus,
-input[type='button'].button-outline[disabled]:hover,
-input[type='reset'].button-outline[disabled]:focus,
-input[type='reset'].button-outline[disabled]:hover,
-input[type='submit'].button-outline[disabled]:focus,
-input[type='submit'].button-outline[disabled]:hover {
+.button.button-outline[disabled]:focus, .button.button-outline[disabled]:hover, button.button-outline[disabled]:focus, button.button-outline[disabled]:hover, input[type='button'].button-outline[disabled]:focus, input[type='button'].button-outline[disabled]:hover, input[type='reset'].button-outline[disabled]:focus, input[type='reset'].button-outline[disabled]:hover, input[type='submit'].button-outline[disabled]:focus, input[type='submit'].button-outline[disabled]:hover {
   border-color: inherit;
   color: #9b4dca;
 }
 
-.button.button-clear,
-button.button-clear,
-input[type='button'].button-clear,
-input[type='reset'].button-clear,
-input[type='submit'].button-clear {
+.button.button-clear, button.button-clear, input[type='button'].button-clear, input[type='reset'].button-clear, input[type='submit'].button-clear {
   background-color: transparent;
   border-color: transparent;
   color: #9b4dca;
 }
 
-.button.button-clear:focus, .button.button-clear:hover,
-button.button-clear:focus,
-button.button-clear:hover,
-input[type='button'].button-clear:focus,
-input[type='button'].button-clear:hover,
-input[type='reset'].button-clear:focus,
-input[type='reset'].button-clear:hover,
-input[type='submit'].button-clear:focus,
-input[type='submit'].button-clear:hover {
+.button.button-clear:focus, .button.button-clear:hover, button.button-clear:focus, button.button-clear:hover, input[type='button'].button-clear:focus, input[type='button'].button-clear:hover, input[type='reset'].button-clear:focus, input[type='reset'].button-clear:hover, input[type='submit'].button-clear:focus, input[type='submit'].button-clear:hover {
   background-color: transparent;
   border-color: transparent;
   color: #606c76;
 }
 
-.button.button-clear[disabled]:focus, .button.button-clear[disabled]:hover,
-button.button-clear[disabled]:focus,
-button.button-clear[disabled]:hover,
-input[type='button'].button-clear[disabled]:focus,
-input[type='button'].button-clear[disabled]:hover,
-input[type='reset'].button-clear[disabled]:focus,
-input[type='reset'].button-clear[disabled]:hover,
-input[type='submit'].button-clear[disabled]:focus,
-input[type='submit'].button-clear[disabled]:hover {
+.button.button-clear[disabled]:focus, .button.button-clear[disabled]:hover, button.button-clear[disabled]:focus, button.button-clear[disabled]:hover, input[type='button'].button-clear[disabled]:focus, input[type='button'].button-clear[disabled]:hover, input[type='reset'].button-clear[disabled]:focus, input[type='reset'].button-clear[disabled]:hover, input[type='submit'].button-clear[disabled]:focus, input[type='submit'].button-clear[disabled]:hover {
   color: #9b4dca;
 }
 
@@ -187,7 +119,7 @@ pre {
   overflow-y: hidden;
 }
 
-pre > code {
+pre>code {
   border-radius: 0;
   display: block;
   padding: 1rem 1.5rem;
@@ -200,18 +132,10 @@ hr {
   margin: 3.0rem 0;
 }
 
-input[type='email'],
-input[type='number'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='text'],
-input[type='url'],
-textarea,
-select {
+input[type='email'], input[type='number'], input[type='password'], input[type='search'], input[type='tel'], input[type='text'], input[type='url'], textarea, select {
   -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   background-color: transparent;
   border: 0.1rem solid black;
   /* border-radius: .4rem; */
@@ -222,15 +146,7 @@ select {
   width: 100%;
 }
 
-input[type='email']:focus,
-input[type='number']:focus,
-input[type='password']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='text']:focus,
-input[type='url']:focus,
-textarea:focus,
-select:focus {
+input[type='email']:focus, input[type='number']:focus, input[type='password']:focus, input[type='search']:focus, input[type='tel']:focus, input[type='text']:focus, input[type='url']:focus, textarea:focus, select:focus {
   border-color: red;
   outline: 0;
 }
@@ -248,8 +164,7 @@ textarea {
   min-height: 6.5rem;
 }
 
-label,
-legend {
+label, legend {
   display: block;
   font-size: 1.6rem;
   /* font-weight: 700; */
@@ -261,8 +176,7 @@ fieldset {
   padding: 0;
 }
 
-input[type='checkbox'],
-input[type='radio'] {
+input[type='checkbox'], input[type='radio'] {
   display: inline;
 }
 
@@ -291,7 +205,7 @@ input[type='radio'] {
   padding: 0;
 }
 
-.row.row-no-padding > .column {
+.row.row-no-padding>.column {
   padding: 0;
 }
 
@@ -325,7 +239,6 @@ input[type='radio'] {
   margin-left: 0;
   max-width: 100%;
   width: 100%;
-  overflow: scroll;
 }
 
 .row .column.column-offset-10 {
@@ -429,7 +342,7 @@ input[type='radio'] {
 
 .row .column .column-center {
   -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
 }
 
 @media (min-width: 40rem) {
@@ -453,23 +366,13 @@ a:focus, a:hover {
   color: #606c76;
 }
 
-dl,
-ol,
-ul {
+dl, ol, ul {
   list-style: none;
   margin-top: 0;
   padding-left: 0;
 }
 
-dl dl,
-dl ol,
-dl ul,
-ol dl,
-ol ol,
-ol ul,
-ul dl,
-ul ol,
-ul ul {
+dl dl, dl ol, dl ul, ol dl, ol ol, ol ul, ul dl, ul ol, ul ul {
   font-size: 90%;
   margin: 1.5rem 0 1.5rem 3.0rem;
 }
@@ -482,30 +385,15 @@ ul {
   list-style: circle inside;
 }
 
-.button,
-button,
-dd,
-dt,
-li {
+.button, button, dd, dt, li {
   margin-bottom: 1.0rem;
 }
 
-fieldset,
-input,
-select,
-textarea {
+fieldset, input, select, textarea {
   margin-bottom: 1.5rem;
 }
 
-blockquote,
-dl,
-figure,
-form,
-ol,
-p,
-pre,
-table,
-ul {
+blockquote, dl, figure, form, ol, p, pre, table, ul {
   margin-bottom: 2.5rem;
 }
 
@@ -514,25 +402,21 @@ table {
   width: 100%;
 }
 
-td,
-th {
+td, th {
   border-bottom: 0.1rem solid #e1e1e1;
   padding: 1.2rem 1.5rem;
   text-align: left;
 }
 
-td:first-child,
-th:first-child {
+td:first-child, th:first-child {
   padding-left: 0;
 }
 
-td:last-child,
-th:last-child {
+td:last-child, th:last-child {
   padding-right: 0;
 }
 
-b,
-strong {
+b, strong {
   font-weight: bold;
 }
 
@@ -540,12 +424,7 @@ p {
   margin-top: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
   letter-spacing: -.1rem;
   margin-bottom: 2.0rem;
@@ -602,5 +481,3 @@ img {
 .float-right {
   float: right;
 }
-
-/*# sourceMappingURL=milligram.css.map */
