@@ -51,7 +51,8 @@ body a:hover {
   width: 100%;
   position: fixed;
   top: 0px;
-  z-index: 9;
+  z-index: 10;
+  height: 24px;
 }
 
 .navigation .navigation-list {
@@ -205,38 +206,64 @@ tr:nth-child(even) {
   color: #bbb;
 }
 
-th i {
+.th i {
   padding-left: 0.5rem;
 }
 
 table {
   margin-bottom: 0;
+  table-layout: fixed;
+
 }
 
 .thead {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
+  /* display: table-header-group; */
+  vertical-align: middle;
+  border-color: inherit;
 }
 
 .td:first-child, .th:first-child {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 .thead .tr .th {
-    font-weight: 500;
-    cursor: pointer;
-    background-color: white;
+  font-weight: 500;
+  background-color: white;
+  white-space: nowrap;
 }
-.th, th{
-    width: 20%;
-  }
-  .th{
-    font-weight: 300;
-    display: inline-block;
+
+.sortable {
+  cursor: pointer;
 }
+
+.th, th, td {
+  width: 20%;
+}
+
+.th {
+  font-weight: 300;
+  display: inline-block;
+}
+
 .td, .th {
-    border-bottom: 0.1rem solid #e1e1e1;
-    padding: 1.2rem 1.5rem;
-    text-align: left;
+  padding: 1.2rem 1.5rem;
+  text-align: left;
+}
+
+.tr {
+  border-bottom: 0.1rem solid #e1e1e1;
+}
+
+.profiles i {
+  padding: 0.2rem;
+  font-size: 2.25rem;
+}
+
+.keywords {
+  font-size: 1.25rem;
+}
+
+#table td div {
+  min-height: 10rem;
+  overflow: hidden;
 }
