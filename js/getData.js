@@ -227,6 +227,8 @@ function handleQueryResponse(response) {
             if (arr[0][col] == 'Keywords') {
                 if (text != null) {
                     text = text.toLowerCase()
+                } else {
+                    text = ''
                 }
             }
             tn = document.createTextNode(text)
@@ -313,7 +315,7 @@ function outOfView(elem)
     var viewBottom = viewTop + $(window).height()
 
     var elemTop = $(elem).offset().top
-    var elemBottom = elemTop + $(elem).height()
+    var elemBottom = elemTop + $(elem).height() - 25 - $('sticky-head').height()
     return ((elemBottom < viewTop) || (elemTop > viewBottom))
 
 }
@@ -325,13 +327,12 @@ function timeToStick(elem)
     var viewBottom = viewTop + $(window).height()
 
     var elemTop = $(elem).offset().top
-    var elemBottom = elemTop + $(elem).height()
+    var elemBottom = elemTop + $(elem).height() - 25 - $('sticky-head').height()
     return (elemTop <= viewTop)
 
 }
 
 function checkSticky() {
-    console.log(outOfView('#table'))
     if (outOfView('#table')) {
         $('#sticky-head').unstick()
     } else if (timeToStick('#table')) {

@@ -194,7 +194,7 @@ tr:nth-child(even) {
 .anchor {
   display: block;
   position: relative;
-  top: -2rem;
+  top: -4rem;
   visibility: hidden;
 }
 
@@ -213,7 +213,6 @@ tr:nth-child(even) {
 table {
   margin-bottom: 0;
   table-layout: fixed;
-
 }
 
 .thead {
@@ -251,7 +250,11 @@ table {
 }
 
 .tr {
-  border-bottom: 0.1rem solid #e1e1e1;
+  border-bottom: 1px dotted black;
+}
+
+td {
+  border-bottom: 0;
 }
 
 .profiles i {
