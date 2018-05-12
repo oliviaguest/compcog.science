@@ -251,10 +251,11 @@ table {
 
 .tr {
   border-bottom: 1px dotted black;
+      border-bottom: 1px solid red;
 }
 
 td {
-  border-bottom: 0;
+      border-bottom: 1px solid #cecece;
 }
 
 .profiles i {
