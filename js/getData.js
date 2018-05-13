@@ -311,11 +311,11 @@ function isInRange(num, a, b)
 function outOfView(elem)
 // from: https://stackoverflow.com/a/488073
 {
-    var viewTop = $(window).scrollTop()
+  var viewTop = $(window).scrollTop() + $('#sticker').height()
     var viewBottom = viewTop + $(window).height()
 
     var elemTop = $(elem).offset().top
-    var elemBottom = elemTop + $(elem).height() - 25 - $('sticky-head').height()
+    var elemBottom = elemTop + $(elem).height() - $('#sticker').height() - $('#sticky-head').height()
     return ((elemBottom < viewTop) || (elemTop > viewBottom))
 
 }
@@ -323,11 +323,8 @@ function outOfView(elem)
 function timeToStick(elem)
 // from: https://stackoverflow.com/a/488073
 {
-    var viewTop = $(window).scrollTop()
-    var viewBottom = viewTop + $(window).height()
-
+    var viewTop = $(window).scrollTop() + $('#sticker').height()
     var elemTop = $(elem).offset().top
-    var elemBottom = elemTop + $(elem).height() - 25 - $('sticky-head').height()
     return (elemTop <= viewTop)
 
 }
@@ -340,4 +337,5 @@ function checkSticky() {
             topSpacing: 24
         })
     }
+    console.log( $('#sticker').height())
 }

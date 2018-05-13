@@ -271,3 +271,7 @@ td {
   min-height: 10rem;
   overflow: hidden;
 }
+
+.first-name, .surname, .location {
+    font-size: 1.6rem;
+}
