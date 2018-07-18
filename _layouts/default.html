@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/siimple@3.0.0/dist/siimple.min.css"> -->
-<!-- <link rel="stylesheet" href="{{ site.baseurl }}/css/siimple.css"> -->
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/milligram.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ site.baseurl }}/css/academicons.min.css"/>
 
-
-<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-<link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
-<!-- <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css"> -->
-<link rel="stylesheet" href="{{ site.baseurl }}/css/milligram.css">
-
-<link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-
-
-
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="{{ site.baseurl }}/js/getData.js"></script>
-
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-<script src="{{ site.baseurl }}/js/jquery.sticky.js"></script>
-
-
-<script>
-  $(document).ready(function(){
-    $("#sticker").sticky({topSpacing:0});
-  });
-</script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118797138-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-118797138-1');
-</script>
-
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="{{ site.baseurl }}/js/getData.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <script src="{{ site.baseurl }}/js/jquery.sticky.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118797138-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-118797138-1');
+  </script>
 </head>
 <body>
-
-
-
-{{ content }}
+  <main class="wrapper">
+    <!-- Navigation -->
+    <nav class="navigation" id="sticker">
+      <section class="navigation-container"><a class="navigation-title title-pixel-font" href="{{ site.baseurl }}">compcog.science</a>
+        <ul class="navigation-list float-right">
+          <li class="navigation-item"><a class="navigation-link pixel-font" href='{{site.baseurl}}#view'>view</a></li>
+          <li class="navigation-item"><a class="navigation-link pixel-font" href='{{site.baseurl}}#add'>add</a></li>
+          <li class="navigation-item"><a class="navigation-link pixel-font" href='{{site.baseurl}}#about'>about</a></li>
+        </ul>
+      </section>
+    </nav>
+    <!-- Header -->
+    <div class="container top-padding">
+      <h1 class="title-pixel-font">compcog.science</h1>
+      <div class="top-padding"></div>
+      {{ content }}
+    </div>
+    <!-- Footer -->
+    <div class="siimple-footer pixel-font" align="center">
+      2018 <a href="//oliviaguest.com">Olivia Guest</a> & <a href="https://sites.google.com/site/chbergma/">Christina Bergmann</a>
+    </div>
+  </main>
 </body>
 </html>
