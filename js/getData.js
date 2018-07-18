@@ -9,7 +9,8 @@ function drawChart() {
     'use strict'
     // Code to get the data from Google Sheets based on: https://stackoverflow.com/a/33055115
     // Add your sheets url and range below
-    var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1pDM_cbLpmfbzNFuOJO3JJTm5IF_8KzeqS8wYIsV9RN0/edit'
+    // var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1pDM_cbLpmfbzNFuOJO3JJTm5IF_8KzeqS8wYIsV9RN0/edit'
+    var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/15QIWMWAF8XyIwCzq7HBK-7r_iZb3a1r6DwdHA9qs8IE/edit'
     var query = new google.visualization.Query(spreadsheetUrl)
     query.send(handleQueryResponse)
 }
@@ -56,7 +57,7 @@ function sortTable(n, n_max) {
         }
         /*Loop through all table rows (except the
     first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 1); i++) {
+        for (i = 0; i < (rows.length - 1); i++) {
             //start by saying there should be no switching:
             shouldSwitch = false
             /*Get the two elements you want to compare,
@@ -124,15 +125,23 @@ function isProfile(col) {
     return (col == 'Website') || (col == 'Google Scholar') || (col == 'GitHub') || (col == 'Twitter') || (col == 'ORCiD')
 }
 
+function isTimestamp(col) {
+    return col == 'Timestamp'
+}
+
 function handleQueryResponse(response) {
     'use strict'
     var row, col, inner, shuffledArr,
         dataTable = response.getDataTable(),
         rows = dataTable.getNumberOfRows(),
         cols = dataTable.getNumberOfColumns()
+
+    console.log(rows, cols)
+    console.log(dataTable.getValue(0, 0))
+
     for (row = 0; row < rows; row += 1) {
         inner = []
-        for (col = 0; col < cols; col += 1) {
+        for (col = 0; col < cols-1; col += 1) {
             inner.push(dataTable.getValue(row, col))
         }
         arr.push(inner)
@@ -188,29 +197,7 @@ function handleQueryResponse(response) {
     superDiv = document.createElement('div')
     superDiv.appendChild(divThead)
     tab = document.createElement('table')
-    //
-    // // The head of the table:
-    // row = 0
-    // thead = document.createElement('thead')
-    // tr = document.createElement('tr')
-    //
-    // for (col = 0; col < arr[row].length; col += 1) {
-    //     th = document.createElement('th')
-    //     th.id = col
-    //     th.onclick = function() {
-    //         sortTable(this.id, col)
-    //     }
-    //     arrow = document.createElement('i')
-    //     arrow.classList.add('fas')
-    //     arrow.classList.add(sortSymbol)
-    //     arrow.classList.add('disable-sort')
-    //     tn = document.createTextNode(arr[row][col])
-    //     th.appendChild(tn)
-    //     th.appendChild(arrow)
-    //     tr.appendChild(th)
-    // }
-    // thead.appendChild(tr)
-    // tab.appendChild(thead)
+
     // The body of the table
     tbody = document.createElement('tbody')
     tbody.id = 'table-body'
@@ -222,8 +209,14 @@ function handleQueryResponse(response) {
             }
             div = document.createElement('div')
             td = document.createElement('td')
+            // console.log(row, col, arr[0][col])
+
+            // Add the correct class based on the column name
             td.classList.add(arr[0][col].replace(' ', '-').toLowerCase())
+            // Add the text for the current cell
             text = arr[row][col]
+
+            // If the current cell is keywords then make them lowercase
             if (arr[0][col] == 'Keywords') {
                 if (text != null) {
                     text = text.toLowerCase()
@@ -241,7 +234,7 @@ function handleQueryResponse(response) {
         td = document.createElement('td')
         td.classList.add('profiles')
         div = document.createElement('div')
-        for (col = 0; col < arr[row].length; col++) {
+        for (col = 1; col < arr[row].length; col++) {
             if (isProfile(arr[0][col]) && arr[row][col] != null) {
                 profile = document.createElement('i')
                 a = document.createElement('a')
@@ -250,20 +243,16 @@ function handleQueryResponse(response) {
                 if (arr[0][col] == 'Twitter') {
                     profile.classList.add('fab')
                     profile.classList.add('fa-twitter')
-                }
-                else if (arr[0][col] == 'GitHub') {
+                } else if (arr[0][col] == 'GitHub') {
                     profile.classList.add('fab')
                     profile.classList.add('fa-github')
-                }
-                else if (arr[0][col] == 'ORCiD') {
+                } else if (arr[0][col] == 'ORCiD') {
                     profile.classList.add('ai')
                     profile.classList.add('ai-orcid')
-                }
-                else if (arr[0][col] == 'Google Scholar') {
+                } else if (arr[0][col] == 'Google Scholar') {
                     profile.classList.add('ai')
                     profile.classList.add('ai-google-scholar')
-                }
-                else if (arr[0][col] == 'Website') {
+                } else if (arr[0][col] == 'Website') {
                     profile.classList.add('fas')
                     profile.classList.add('fa-external-link-alt')
                 }
@@ -313,7 +302,7 @@ function outOfView(elem)
 {
     var viewTop = $(window).scrollTop()
     var viewBottom = viewTop + $(window).height()
-
+    console.log(elem)
     var elemTop = $(elem).offset().top
     var elemBottom = elemTop + $(elem).height() - 25 - $('sticky-head').height()
     return ((elemBottom < viewTop) || (elemTop > viewBottom))

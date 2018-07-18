@@ -1,4 +1,4 @@
-<form>
+<form id="gform" method="POST" action="https://script.google.com/macros/s/AKfycbxx9eBp64Xlijh9aNnxkX6MHj5bIpnLyCAbP6M0cVVO0QWFRSMK/exec">
   <fieldset>
     <div class="row">
       <div class="column">
@@ -9,39 +9,66 @@
     </div>
     <div class="row">
       <div class="column">
-        <label for="firstName">First Name:</label>
-        <input type="text" placeholder="" id="firstName">
-        <div class="form-field-helper">Required; do not include title; optionally include middle initials.</div>
+        <label for="first-name">First Name:</label>
+        <input type="text" placeholder="" id="first-name" name="First Name">
+        <div class="form-field-helper" id="first-name-help">Required; do not include title; optionally include middle initials.</div>
+
         <label for="surname">Surname:</label>
-        <input type="text" placeholder="" id="surname">
-        <div class="form-field-helper">Required.</div>
+        <input type="text" placeholder="" id="surname" name="Surname">
+        <div class="form-field-helper" id="surname-help">Required.</div>
+
         <label for="location">Location:</label>
-        <input type="text" placeholder="" id="location">
-        <div class="form-field-helper">Required; city, country; or just country.</div>
+        <input type="text" placeholder="" id="location" name="Location">
+        <div class="form-field-helper" id="location-help">Required; city, country; or just country.</div>
+
+        <input id="honeypot" type="text" name="honeypot" value="" style="display:none">
+
       </div>
       <div class="column">
         <label for="keywords">Keywords:</label>
-        <input type="text" placeholder="" id="keywords">
-        <div class="form-field-helper">Required; minimum of two; comma separated.</div>
+        <input type="text" placeholder="" id="keywords" name="Keywords">
+        <div class="form-field-helper" id="keywords-help">Required; minimum of two; comma separated.</div>
+
         <label for="website">Website:</label>
-        <input type="text" placeholder="" id="website">
-        <div class="form-field-helper">Required; personal or institutional profile URL.</div>
+        <input type="text" placeholder="" id="website" name="Website">
+        <div class="form-field-helper" id="website-help" >Required; personal or institutional profile URL.</div>
+
         <label for="scholar">Google Scholar:</label>
-        <input type="text" placeholder="" id="scholar">
-        <div class="form-field-helper">Optional, but useful.</div>
+        <input type="text" placeholder="" id="scholar" name="Google Scholar">
+        <div class="form-field-helper" id="google-scholar-help" >Optional, but useful. Enter the URL, please.</div>
       </div>
+
       <div class="column">
+
         <label for="github">GitHub:</label>
-        <input type="text" placeholder="" id="github">
-        <div class="form-field-helper">Optional, but useful.</div>
+        <input type="text" placeholder="" id="github" name="GitHub">
+        <div class="form-field-helper" id="github-help">Optional, but useful. Enter the URL, please.
+        </div>
+
         <label for="twitter">Twitter:</label>
-        <input type="text" placeholder="" id="twitter">
-        <div class="form-field-helper">Optional, but useful.</div>
+        <input type="text" placeholder="" id="twitter" name="Twitter">
+        <div class="form-field-helper" id="twitter-help">Optional, but useful. Enter the URL, please.
+        </div>
+
         <label for="orcid">ORCiD:</label>
-        <input type="text" placeholder="" id="orcid">
-        <div class="form-field-helper">Optional, but useful.</div>
+        <input type="text" placeholder="" id="orcid" name="ORCiD">
+        <div class="form-field-helper" id="orcid-help">Optional, but useful. Enter the URL, please.
+        </div>
+
         <input class="button-primary float-right pixel-font" type="submit" value="Submit">
       </div>
     </div>
   </fieldset>
 </form>
+
+
+<!-- Customise the Thankyou Message People See when they submit the form: -->
+<div style="display:none;" id="thankyou_message">
+  <h2 class="pixel-font">Thank you!</h2>
+  <p>The new person should now appear in the list below.</p>
+
+
+</div>
+
+<!-- Submit the Form to Google Using "AJAX" -->
+<script data-cfasync="false" type="text/javascript" src="./js/form-submission-handler.js"></script>
