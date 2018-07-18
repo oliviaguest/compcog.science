@@ -5,6 +5,34 @@ google.load('visualization', '1', {
     packages: ['corechart', 'line']
 })
 
+function hideTable() {
+    if (document.body.clientWidth < 550) {
+        console.log('hide')
+        var table = document.getElementById('table')
+        table.style.display = 'none'
+
+        table = document.getElementById('sticky-head')
+        table.style.display = 'none'
+
+        table = document.getElementById('rotate')
+        table.style.display = 'block'
+
+    } else {
+        var table = document.getElementById('table')
+        table.style.display = 'block'
+
+        table = document.getElementById('sticky-head')
+        table.style.display = 'block'
+
+        table = document.getElementById('rotate')
+        table.style.display = 'none'
+    }
+}
+
+window.addEventListener('resize', function(event) {
+    hideTable()
+})
+
 function drawChart() {
     'use strict'
     // Code to get the data from Google Sheets based on: https://stackoverflow.com/a/33055115
@@ -141,7 +169,7 @@ function handleQueryResponse(response) {
 
     for (row = 0; row < rows; row += 1) {
         inner = []
-        for (col = 0; col < cols-1; col += 1) {
+        for (col = 0; col < cols - 1; col += 1) {
             inner.push(dataTable.getValue(row, col))
         }
         arr.push(inner)
@@ -278,6 +306,8 @@ function handleQueryResponse(response) {
     $('#sticky-head').sticky({
         topSpacing: 25
     })
+
+    hideTable()
 }
 
 document.addEventListener('scroll', checkSticky)
