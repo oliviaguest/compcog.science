@@ -251,10 +251,11 @@ table {
 
 .tr {
   border-bottom: 1px dotted black;
+      border-bottom: 1px solid red;
 }
 
 td {
-  border-bottom: 0;
+      border-bottom: 1px solid #cecece;
 }
 
 .profiles i {
@@ -269,4 +270,8 @@ td {
 #table td div {
   min-height: 10rem;
   overflow: hidden;
+}
+
+.first-name, .surname, .location {
+    font-size: 1.6rem;
 }
